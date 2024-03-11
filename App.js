@@ -1,20 +1,30 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+
+import AgendarMesa from "./src/screens/AgendarMesa";
+import testeBtn from "./src/screens/testeBtn";
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName='AgendarMesa'>
+
+        <Stack.Screen 
+          name='testeBtn'
+          component={testeBtn}
+          options={{
+            headerShown: true
+          }}
+      
+          
+        />
+
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
+
